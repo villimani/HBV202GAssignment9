@@ -2,13 +2,13 @@ package is.hi.hbv202g.ass9.composite;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+
 public class PlusComposite implements MathExpression {
     private List<MathExpression> children=new ArrayList<MathExpression>();
+    int i=1;
     public void draw() {
         for (MathExpression child : children) {
-            int i=0;
-            i=child.getResult();
+            i=i*child.getResult();
         }
     }
     public void add(MathExpression component) {
@@ -21,4 +21,7 @@ public class PlusComposite implements MathExpression {
         return children;
     }
 
+    public int getResult() {
+        return 0;
+    }
 }

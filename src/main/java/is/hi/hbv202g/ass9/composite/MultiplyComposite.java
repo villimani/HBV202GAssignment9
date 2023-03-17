@@ -2,13 +2,14 @@ package is.hi.hbv202g.ass9.composite;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
+
 public class MultiplyComposite implements MathExpression {
     private List<MathExpression> children=new ArrayList<MathExpression>();
+
+    int i=0 ;
     public void multiply() {
         for (MathExpression child : children) {
-            int i=0;
-            i=child.getResult();
+            i+=child.getResult();
         }
     }
     public void add(MathExpression component) {
@@ -22,5 +23,7 @@ public class MultiplyComposite implements MathExpression {
     }
 
 
-
+    public int getResult() {
+        return 0;
+    }
 }
