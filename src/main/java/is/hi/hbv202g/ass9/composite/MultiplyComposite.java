@@ -6,10 +6,10 @@ import java.util.List;
 public class MultiplyComposite implements MathExpression {
     private List<MathExpression> children=new ArrayList<MathExpression>();
 
-    int i=0 ;
+    int i=1;
     public void multiply() {
         for (MathExpression child : children) {
-            i+=child.getResult();
+            i=i*child.getResult();
         }
     }
     public void add(MathExpression component) {
@@ -24,6 +24,7 @@ public class MultiplyComposite implements MathExpression {
 
 
     public int getResult() {
-        return 0;
+        multiply();
+        return i;
     }
 }

@@ -5,10 +5,10 @@ import java.util.List;
 
 public class PlusComposite implements MathExpression {
     private List<MathExpression> children=new ArrayList<MathExpression>();
-    int i=1;
-    public void draw() {
+    int i=0;
+    public void plus() {
         for (MathExpression child : children) {
-            i=i*child.getResult();
+            i+=child.getResult();
         }
     }
     public void add(MathExpression component) {
@@ -22,6 +22,7 @@ public class PlusComposite implements MathExpression {
     }
 
     public int getResult() {
-        return 0;
+        plus();
+        return i;
     }
 }
