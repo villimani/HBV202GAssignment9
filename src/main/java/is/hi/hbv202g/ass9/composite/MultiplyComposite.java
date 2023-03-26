@@ -8,6 +8,7 @@ public class MultiplyComposite implements MathExpression {
 
     int i=1;
     public void multiply() {
+        i=1;
         for (MathExpression child : children) {
             i=i*child.getResult();
         }

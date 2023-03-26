@@ -1,22 +1,28 @@
 package is.hi.hbv202g.ass9.compositeLeafObservedByComposite;
 
-import is.hi.hbv202g.ass9.composite.MathExpression;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlusComposite implements is.hi.hbv202g.ass9.composite.MathExpression {
-    private List<is.hi.hbv202g.ass9.composite.MathExpression> children=new ArrayList<is.hi.hbv202g.ass9.composite.MathExpression>();
+public class PlusComposite implements MathExpression, Observer {
+    private List<MathExpression> children=new ArrayList<MathExpression>();
+
+
+
+    int lastObservedResult;
     int i=0;
+
+
+
     public void plus() {
-        for (is.hi.hbv202g.ass9.composite.MathExpression child : children) {
+        i=0;
+        for (MathExpression child : children) {
             i+=child.getResult();
         }
     }
-    public void add(is.hi.hbv202g.ass9.composite.MathExpression component) {
+    public void add(MathExpression component) {
         children.add(component);
     }
-    public void remove(is.hi.hbv202g.ass9.composite.MathExpression component) {
+    public void remove(MathExpression component) {
         children.remove(component);
     }
     public List<MathExpression> getChildren() {
@@ -26,5 +32,15 @@ public class PlusComposite implements is.hi.hbv202g.ass9.composite.MathExpressio
     public int getResult() {
         plus();
         return i;
+    }
+
+    @Override
+    public void update() {
+       plus();
+       lastObservedResult=i;
+    }
+
+    public int getLastObservedResult() {
+        return lastObservedResult;
     }
 }

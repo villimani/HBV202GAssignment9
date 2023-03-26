@@ -1,19 +1,39 @@
-package is.hi.hbv202g.ass9.compositeLeafObservedByComposite;
-
+package is.hi.hbv202g.ass9.compositeLeafObservedTemplateMethod;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiplyComposite implements MathExpression, Observer {
+public class Superclass implements MathExpression, Observer{
+
     private List<MathExpression> children=new ArrayList<MathExpression>();
 
+
+
     int lastObservedResult;
-    int i=1;
-    public void multiply() {
-        i=1;
-        for (MathExpression child : children) {
-            i=i*child.getResult();
+    protected int i;
+    protected int g;
+
+
+    public Superclass (int h) {
+        g=h;
+        i=h;
+    }
+
+    public void plus() {
+
+        if (g==0){
+            i=0;
+            for (MathExpression child : children) {
+                i+=child.getResult();
+            }
         }
+        if (g==1){
+            i=1;
+            for (MathExpression child : children) {
+                i=i*child.getResult();
+            }
+        }
+
     }
     public void add(MathExpression component) {
         children.add(component);
@@ -25,15 +45,14 @@ public class MultiplyComposite implements MathExpression, Observer {
         return children;
     }
 
-
     public int getResult() {
-        multiply();
+        plus();
         return i;
     }
 
     @Override
     public void update() {
-        multiply();
+        plus();
         lastObservedResult=i;
     }
 
@@ -41,3 +60,4 @@ public class MultiplyComposite implements MathExpression, Observer {
         return lastObservedResult;
     }
 }
+

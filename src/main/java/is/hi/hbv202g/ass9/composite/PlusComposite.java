@@ -7,6 +7,7 @@ public class PlusComposite implements MathExpression {
     private List<MathExpression> children=new ArrayList<MathExpression>();
     int i=0;
     public void plus() {
+        i=0;
         for (MathExpression child : children) {
             i+=child.getResult();
         }

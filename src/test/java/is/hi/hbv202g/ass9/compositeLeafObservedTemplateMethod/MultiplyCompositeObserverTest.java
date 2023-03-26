@@ -2,8 +2,8 @@ package is.hi.hbv202g.ass9.compositeLeafObservedTemplateMethod;
 
 import static org.junit.Assert.*;
 
-import is.hi.hbv202g.ass9.composite.MultiplyComposite;
-import is.hi.hbv202g.ass9.composite.NumberLeaf;
+import is.hi.hbv202g.ass9.compositeLeafObservedTemplateMethod.MultiplyComposite;
+import is.hi.hbv202g.ass9.compositeLeafObservedTemplateMethod.NumberLeaf;
 import org.junit.Before;
 import org.junit.Test;
 
